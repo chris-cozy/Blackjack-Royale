@@ -1,7 +1,6 @@
 '''
 This file contains the dealer class.
 '''
-init_bank = 100
 
 class Dealer():
     '''
