@@ -65,6 +65,11 @@ if __name__ == '__main__':
         round_num += 1
         while in_round:
             print(BAR)
+            bet = int(input(f"How much do you want to bet?\nYour chips: {p1.bankroll}\nBet amount: "))
+            while bet > p1.bankroll:
+                print("You don't have enough chips, either bet smaller or stop playing...")
+                bet = int(input(f"How much do you want to bet?\nYour funds: {p1.bankroll}\nBet amount: "))
+            print(BAR)
             print(f"Dealing cards for Round {round_num}...")
             #Deal the starting cards
             for num in range(2):
@@ -85,9 +90,11 @@ if __name__ == '__main__':
             player_turn = True
             print(f"{p1.name}'s turn.")
             while player_turn:
-                #Bust check
+                #Player lost
                 if val(p1.all_cards) > GOAL:
                         print(f"{p1.name} HAS BUSTED! Round over!")
+                        print(f"{p1.name} has lost {bet} chips!")
+                        p1.bankroll -= bet
                         player_turn = False
                         in_round = False
                         break
@@ -111,12 +118,18 @@ if __name__ == '__main__':
 
             while dealer_turn:
                 if val(d1.all_cards) > GOAL:
+                    #Player has won
                     print(f"{d1.name} HAS BUSTED! ROUND OVER!")
+                    print(f"{p1.name} has won {bet * 2} chips!")
+                    p1.bankroll += (bet * 2)
                     print(BAR)
                     dealer_turn = False
                     in_round = False
                 elif val(d1.all_cards) > val(p1.all_cards):
+                    #Dealer has won
                     print(f"{d1.name} WINS THE ROUND!")
+                    print(f"{p1.name} has lost {bet} chips!")
+                    p1.bankroll -= bet
                     print(BAR)
                     dealer_turn = False
                     in_round = False
