@@ -71,10 +71,27 @@ if __name__ == '__main__':
                 bet = int(input(f"How much do you want to bet?\nYour funds: {p1.bankroll}\nBet amount: "))
             print(BAR)
             print(f"Dealing cards for Round {round_num}...")
+
             #Deal the starting cards
             for num in range(2):
-                p1.all_cards.append(game_deck.deal())
-                d1.all_cards.append(game_deck.deal()) 
+                #Player Ace decision
+                new_card = game_deck.deal()
+                if new_card.val() == 0:
+                    print(BAR)
+                    ace_choice = int(input("Choose a value for the Ace card:\n1. 1\n2. 11\nChoice: "))
+                    if ace_choice == 1:
+                        new_card.value = 1
+                    elif ace_choice == 2:
+                        new_card.value = 11
+                p1.all_cards.append(new_card)
+                #Dealer Ace Choice
+                new_card = game_deck.deal()
+                if new_card.val() == 0:
+                    if (val(d1.all_cards) + 11) < GOAL:
+                        new_card.value = 11
+                    else :
+                        new_card.value = 1
+                d1.all_cards.append(new_card) 
 
             print(BAR)
             print(f"{p1.name} cards: ")
@@ -100,7 +117,18 @@ if __name__ == '__main__':
                         break
                 choice = int(input('Select an action:\n1. Hit\n2. Stay\nChoice: '))
                 if choice == 1:
-                    p1.all_cards.append(game_deck.deal())
+
+                    #Player Ace decision
+                    new_card = game_deck.deal()
+                    if new_card.val() == 0:
+                        print(BAR)
+                        ace_choice = int(input("Choose a value for the Ace card:\n1. 1\n2. 11\nChoice: "))
+                        if ace_choice == 1:
+                            new_card.value = 1
+                        elif ace_choice == 2:
+                            new_card.value = 11
+
+                    p1.all_cards.append(new_card)
                     print(BAR)
                     print(f"{p1.name} cards: ")
                     display(p1.all_cards)
@@ -135,7 +163,14 @@ if __name__ == '__main__':
                     in_round = False
                 elif val(d1.all_cards) <= val(p1.all_cards):
                     print(f"{d1.name} hits.")
-                    d1.all_cards.append(game_deck.deal())
+                    #Dealer Ace Choice
+                    new_card = game_deck.deal()
+                    if new_card.val() == 0:
+                        if (val(d1.all_cards) + 11) < GOAL:
+                            new_card.value = 11
+                        else:
+                            new_card.value = 1
+                    d1.all_cards.append(new_card)
                     print(BAR)
                     print(f"{d1.name} cards: ")
                     display(d1.all_cards)
