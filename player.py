@@ -1,7 +1,7 @@
 '''
 This file contains the player class.
 '''
-init_bank = 100
+INITIAL = 100
 
 class Player():
     '''
@@ -16,18 +16,25 @@ class Player():
     def __init__(self, name):
         self.name = name
         self.all_cards = []
-        self.bankroll = init_bank
+        self.bankroll = INITIAL
+        self.value = 0
 
 
-    def add_cards(self, cards):
+    def add_card(self, card):
         '''
-        This function allows players to add cards to their hand. 
-        It can be either a single card object or a list of card objects
+        This function allows players to add a card object to their hand. 
         '''
-        if type(cards) == type([]):
-            self.all_cards.extend(cards)
+        if card.value == 11:
+            self.ace(card)
+        self.all_cards.append(card)
+        self.value += card.value
+
+    def ace(self, card):
+        choice = int(input("Choose a value for the Ace card:\n1. 1\n2. 11\nChoice: "))
+        if choice == 1:
+            card.value = 1
         else:
-            self.all_cards.append(cards)
+            pass
         
 
     def __str__(self):
