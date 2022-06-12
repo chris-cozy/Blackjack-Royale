@@ -1,12 +1,5 @@
 '''
-This file will contain the game loop.
-What we need:
-    - Card Object
-    - Deck Object
-    - Player Object
-    - Dealer Object
-Functions:
-    - calculate the value of cards for a player
+This file contains the blackjack game loop.
 '''
 import dealer
 import deck
@@ -28,7 +21,6 @@ def hidden_display(player, dealer):
     print(f"Value: ???")
     print(BAR)
 
-
 def full_display(player, dealer):
     print(BAR)
     print(f"{player.name} cards: ")
@@ -46,7 +38,6 @@ def display(player):
     print('', *player.all_cards, sep = '\n')
     print(f"Value: {player.value}")
     print(BAR)
-
 
 def check_for_win(dealer, player, bet):
     if player.value > GOAL:
@@ -80,8 +71,7 @@ def first_deal(player, dealer, deck):
 if __name__ == '__main__':
     '''
     Game Logic
-        Create players
-        Create and shuffle deck
+        Create players and deck
         Begin game.
         At the beginning of each round, deal two cards to both players.
         While it is player one's turn, they can choose to hit or stay.
@@ -99,6 +89,7 @@ if __name__ == '__main__':
     in_round = True
 
     game_on = True
+    
     while game_on:
 
         del p1.all_cards[:]
