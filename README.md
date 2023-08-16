@@ -1,21 +1,61 @@
-# blackjack
+# Project README
 
+# Blackjack Royale
 
-## Gamplay Loop
-For this version of the game, there will be a human player and a computer dealer. We will start with a normal deck of cards. 
-The player has a bankroll and can place a bet. The player starts with two cards face up, and the dealer starts with 1 card face up and one card face down. 
-The player goes first. The player's goal is to get closer to a total value of 21 than the dealer does. The total value is the sum of the current face of cards.
-Possible actions:
-    - Hit (recieve another card)
-    - Stay (stop receiving cards)
-In this implementation, actions like insurance, split, or double down are not considered.
-After the player's turn, if the player is under 21, the dealer will hit until they either beat the player of the dealer busts (goes over 21).
+Blackjack Royale is an open-source console-based blackjack game implemented in Python. Enjoy the thrill of the casino right on your terminal! This project aims to provide an interactive and realistic blackjack experience, complete with player decisions, dealer behavior, and win/lose conditions.
 
-## Ending the game
-If the player keeps hitting and goes over 21, they bust and lose the bet. In this case, the game is over and the dealer collects the money.
-If the dealer sum is higher than the player's and still under 21, then the dealer wins.
-If the dealer busts, the bet is doubled and given to the player, adding to their bankroll.
+## Features
 
-## Special Rules
-Face cards (Jack, Queen, King) count as a value of 10.
-Aces can count as either 1 or 11, whichever value is prefereable to the player.
+- Classic blackjack gameplay with player decisions (hit, stand) and dealer actions.
+- Realistic card deck management with shuffling and dealing.
+- User-friendly console-based interface for easy interaction.
+- Scoring system to determine game outcomes (win, lose, draw).
+- Thoroughly tested to ensure fair and enjoyable gameplay.
+
+## Getting Started
+
+1. Clone this repository to your local machine using:
+    
+    ```bash
+    git clone https://github.com/yourusername/blackjack-royale.git
+    ```
+    
+2. Navigate to the project directory:
+    
+    ```bash
+    cd blackjack-royale
+    ```
+    
+3. Run the game:
+    
+    ```bash
+    python blackjack.py]
+    ```
+    
+
+## **How to Play**
+
+1. The game starts with the initial deal of two cards for both the player and the dealer.
+2. Players can choose to hit (get another card) or stand (keep their current hand).
+3. The goal is to have a hand value as close to 21 as possible without exceeding it.
+4. The dealer will automatically hit until their hand value is at least 17.
+5. After the dealer's turn, the winner is determined based on the hand values.
+6. Enjoy the thrill of the casino and test your luck!
+
+## **Contributing**
+
+Contributions are welcome! If you'd like to contribute to the project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Submit a pull request to the **`main`** branch.
+
+## **License**
+
+This project is licensed under the MIT License - see the **[LICENSE](https://opensource.org/license/mit/)** file for details.
+
+## **Acknowledgements**
+
+- The project was inspired by the classic game of blackjack.
+- Special thanks to the contributors who helped improve this project.
