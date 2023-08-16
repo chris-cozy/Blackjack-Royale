@@ -1,5 +1,3 @@
-# Project README
-
 # Blackjack Royale
 
 Blackjack Royale is an open-source console-based blackjack game implemented in Python. Enjoy the thrill of the casino right on your terminal! This project aims to provide an interactive and realistic blackjack experience, complete with player decisions, dealer behavior, and win/lose conditions.
